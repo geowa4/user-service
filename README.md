@@ -17,7 +17,7 @@ Have these installed.
 - Go
 - Docker
 
-If you're on Mac, you can get these by running `brew install go boot2docker fig`;
+If you're on Mac, you can get these by running `brew install go boot2docker`;
 boot2docker will also require VirtualBox (`brew cask install virtualbox`).
 You'll also need to be able to cross-compile for 64-bit Linux: http://stackoverflow.com/questions/12168873/cross-compile-go-on-osx.
 
