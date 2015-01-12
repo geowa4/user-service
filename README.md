@@ -16,7 +16,6 @@ Have these installed.
 - Make
 - Go
 - Docker
-- Fig
 
 If you're on Mac, you can get these by running `brew install go boot2docker fig`;
 boot2docker will also require VirtualBox (`brew cask install virtualbox`).
