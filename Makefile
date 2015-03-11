@@ -9,7 +9,7 @@ all: docker
 
 install:
 	go get -u golang.org/x/tools/cmd/vet github.com/golang/lint/golint golang.org/x/tools/cmd/oracle golang.org/x/tools/cmd/goimports golang.org/x/tools/cmd/cover github.com/nsf/gocode github.com/cespare/reflex
-	go get -u github.com/gorilla/mux gopkg.in/jackc/pgx.v2 gopkg.in/inconshreveable/log15.v2 github.com/stretchr/testify github.com/DATA-DOG/go-sqlmock github.com/kisielk/sqlstruct
+	go get -u github.com/emicklei/go-restful gopkg.in/jackc/pgx.v2 gopkg.in/inconshreveable/log15.v2 github.com/stretchr/testify github.com/DATA-DOG/go-sqlmock github.com/kisielk/sqlstruct
 
 clean:
 	-rm -f $(DIST_BIN)
@@ -46,7 +46,7 @@ $(DB_SETUP_FILE):
 	touch $(DB_SETUP_FILE)
 
 dev: $(DB_SETUP_FILE) docker
-	docker run --name $(SERVICE_NAME)-web -p 8080:8080 --link $(SERVICE_NAME)-db:db -d $(SERVICE_NAME)
+	docker run --name $(SERVICE_NAME)-web -v $(CURDIR)/swagger-ui:/opt/swagger-ui -p 8080:8080 --link $(SERVICE_NAME)-db:db -d $(SERVICE_NAME)
 
 watch: clean dev
 	reflex -r '\.go$$' make clean dev
