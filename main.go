@@ -18,7 +18,7 @@ func main() {
 	config := swagger.Config{
 		WebServices:     container.RegisteredWebServices(),
 		WebServicesUrl:  "http://localhost:8080",
-		ApiPath:         "/",
+		ApiPath:         "/api.json",
 		SwaggerPath:     "/docs/",
 		SwaggerFilePath: "/opt/swagger-ui",
 	}

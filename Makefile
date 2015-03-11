@@ -46,7 +46,7 @@ $(DB_SETUP_FILE):
 	touch $(DB_SETUP_FILE)
 
 dev: $(DB_SETUP_FILE) docker
-	docker run --name $(SERVICE_NAME)-web -v $(CURDIR)/swagger-ui:/opt/swagger-ui -p 8080:8080 --link $(SERVICE_NAME)-db:db -d $(SERVICE_NAME)
+	docker run --name $(SERVICE_NAME)-web -v $(CURDIR)/swagger-ui/dist:/opt/swagger-ui -p 8080:8080 --link $(SERVICE_NAME)-db:db -d $(SERVICE_NAME)
 
 watch: clean dev
 	reflex -r '\.go$$' make clean dev
